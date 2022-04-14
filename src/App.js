@@ -12,6 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/user/:id' element={<UserInfo />} />
+          <Route path='*' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -22,7 +22,7 @@ const UserInfo = () => {
                 <div className='flex flex-col flex-row justify-center items-center space-y-8'>
                     {postsIsPending && <h2>Loading...</h2>}
                     {postsError && <h2>{postsError}</h2>}
-                    {postsData && postsData.map((post) => (<Card title={`${post.id}. - ${post.title}`} body={post.body} />))}
+                    {postsData && postsData.map((post) => (<Card key={post.id} title={`${post.id}. - ${post.title}`} body={post.body} />))}
                 </div>
 
 
