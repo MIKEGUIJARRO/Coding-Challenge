@@ -15,9 +15,8 @@ const Navbar = () => {
                         </div>
                     </div>
                     <ul className='flex flex-row space-x-8'>
-                        <li>About</li>
-                        <li>Pricing</li>
-                        <li>Contact</li>
+                        <li>Coding Challenge</li>
+                        <li>Ksense Tech</li>
                     </ul>
 
                 </div>
