@@ -8,18 +8,21 @@ const UserInfo = () => {
 
     const { id } = useParams();
 
-    const URL = `https://jsonplaceholder.typicode.com/posts?userId=${id}`;
-    const { data, error, isPending } = useFetch(URL);
-
+    const URLPosts = `https://jsonplaceholder.typicode.com/posts?userId=${id}`;
+    const URLUser = `https://jsonplaceholder.typicode.com/users?id=${id}`;
+    const { data: postsData, error: postsError, isPending: postsIsPending } = useFetch(URLPosts);
+    const { data: userData, error: userError, isPending: userIsPending } = useFetch(URLUser);
+    console.log(userData);
     return (
         <div>
             <Scaffold>
                 <h1 className='py-12'>Users Info</h1>
-
+                {userData && <h2 className='pb-12 text-gray-700'>{userData[0]?.name}</h2>}
+                {userData.length === 0 && <h2 className='pb-12 text-gray-700'>Undefined User 👀</h2>}
                 <div className='flex flex-col flex-row justify-center items-center space-y-8'>
-                    {isPending && <h2>Loading...</h2>}
-                    {error && <h2>{error}</h2>}
-                    {data && data.map((post) => (<Card title={`${post.id}. - ${post.title}`} body={post.body} />))}
+                    {postsIsPending && <h2>Loading...</h2>}
+                    {postsError && <h2>{postsError}</h2>}
+                    {postsData && postsData.map((post) => (<Card title={`${post.id}. - ${post.title}`} body={post.body} />))}
                 </div>
 
 
